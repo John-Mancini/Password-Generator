@@ -109,3 +109,48 @@ function determineUppercase(){
     }
     return specialConfirm;
 }
+
+//Function that takes all the prompts and generates a password based on the answer using a random number generator, if the answer was no for everything the password will be all lowercase letters.
+
+function generatePassword(){
+  determineLength();
+  console.log(passwordLength);
+  determineUppercase();
+  console.log(uppercaseConfirm);
+  determineNumbers();
+  console.log(numberConfirm);
+  determineSpecial();
+  console.log(specialConfirm);
+
+  var characters = lowercaseLetter;
+  var password = "";
+  if(uppercaseConfirmed && numberConfirmed && specialConfirmed){
+    characters += uppercaseLetter + numbercharacter + specialcharacter;
+
+  }else if(uppercaseConfirm && specialConfirmed){
+    characters += uppercaseLetter + numbercharacter;
+
+  }else if(numberConfirmed && specialConfirm){
+    characters += numbercharacter + specialcharacter;
+
+  }else if(uppercaseConfirmed && specialConfirm){
+    characters += uppercaseLetter + specialcharacter;
+
+  }else if(uppercaseConfirm){
+    characters += uppercaseConfirm;
+
+  }else if(numberConfirmed){
+    characters += numbercharacter;
+
+  }else if(specialConfirm){
+    characters += specialcharacter;
+  }
+  else{
+    characters === lowercaseLetter;
+  }
+    for(var i = 0; i < passwordLength; i++){
+      password += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return password;
+
+}
