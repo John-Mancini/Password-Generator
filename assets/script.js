@@ -29,12 +29,15 @@ function determineLength(){
 
     if(passwordLength < 8){
       alert("Password must have a value greater then 8 characters.");
+      determineLength();
     }else if (passwordLength > 128){
       alert("Password must can not have over 128 characters");
+      determineLength();
     }else if(isNaN(passwordLength)){
       alert("Password must be a number between 8-128");
+      determineLength();
     }else{
-      alert("The next series of prompts choose the different types of characters you'd like your new password to contain.\nIf you choose 'No' for all, your password will only contain lowercase letters.")
+      alert("The next series of prompts choose the different types of characters you'd like your new password to contain.\nIf you choose 'No' for all, your password will only contain lowercase letters.");
     }
     return passwordLength;
 }
