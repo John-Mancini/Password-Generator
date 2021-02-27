@@ -10,6 +10,7 @@ let passwordLength;
 let uppercaseConfirmed;
 let numberConfirmed;
 let specialConfirmed;
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -60,4 +61,51 @@ function determineUppercase(){
       determineUppercase();
     }
     return uppercaseConfirm;
+}
+//function to determine numbers
+function determineUppercase(){
+  numberConfirm = prompt("Would you like Numbers in your password? \n(Yes or No)");
+    numberConfirm = numberConfirm.toLowerCase();
+
+    if (numberConfirm === null || numberConfirm === ""){
+      alert("Yes or No");
+      determineUppercase();
+
+    }else if (numberConfirm === "yes" || numberConfirm ==="y"){
+      numberConfirm = true;
+      return numberConfirm;
+
+    }else if (numberConfirm === "no" || numberConfirm ==="n"){
+      numberConfirm = false;
+      return numberConfirm;
+    
+    }else {
+      alert("Yes or No");
+      determineUppercase();
+    }
+    return numberConfirm;
+}
+
+//function to determine special characters
+function determineUppercase(){
+  specialConfirm = prompt("Would you like uppercase letters in your password? \n(Yes or No)");
+    specialConfirm = specialConfirm.toLowerCase();
+
+    if (specialConfirm === null || specialConfirm === ""){
+      alert("Yes or No");
+      determineUppercase();
+
+    }else if (specialConfirm === "yes" || specialConfirm ==="y"){
+      specialConfirm = true;
+      return specialConfirm;
+
+    }else if (specialConfirm === "no" || specialConfirm ==="n"){
+      specialConfirm = false;
+      return specialConfirm;
+    
+    }else {
+      alert("Yes or No");
+      determineUppercase();
+    }
+    return specialConfirm;
 }
