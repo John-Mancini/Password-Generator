@@ -66,13 +66,13 @@ function determineUppercase(){
     return uppercaseConfirm;
 }
 //function to determine numbers
-function determineUppercase(){
+function determineNumbers(){
   numberConfirm = prompt("Would you like Numbers in your password? \n(Yes or No)");
     numberConfirm = numberConfirm.toLowerCase();
 
     if (numberConfirm === null || numberConfirm === ""){
       alert("Yes or No");
-      determineUppercase();
+      determineNumbers();
 
     }else if (numberConfirm === "yes" || numberConfirm ==="y"){
       numberConfirm = true;
@@ -84,19 +84,19 @@ function determineUppercase(){
     
     }else {
       alert("Yes or No");
-      determineUppercase();
+      determineNumbers();
     }
     return numberConfirm;
 }
 
 //function to determine special characters
-function determineUppercase(){
+function determineSpecial(){
   specialConfirm = prompt("Would you like uppercase letters in your password? \n(Yes or No)");
     specialConfirm = specialConfirm.toLowerCase();
 
     if (specialConfirm === null || specialConfirm === ""){
       alert("Yes or No");
-      determineUppercase();
+      determineSpecial();
 
     }else if (specialConfirm === "yes" || specialConfirm ==="y"){
       specialConfirm = true;
@@ -108,11 +108,10 @@ function determineUppercase(){
     
     }else {
       alert("Yes or No");
-      determineUppercase();
+      determineSpecial();
     }
     return specialConfirm;
 }
-
 //Function that takes all the prompts and generates a password based on the answer using a random number generator, if the answer was no for everything the password will be all lowercase letters.
 
 function generatePassword(){
@@ -125,35 +124,35 @@ function generatePassword(){
   determineSpecial();
   console.log(specialConfirm);
 
-  var characters = lowercaseLetter;
-  var password = "";
-  if(uppercaseConfirmed && numberConfirmed && specialConfirmed){
-    characters += uppercaseLetter + numbercharacter + specialcharacter;
+var characters = lowercaseLetter;
+var password = "";
+if (uppercaseConfirm && numberConfirm && specialConfirm){
+  characters += uppercaseLetter + numberCharacter + specialCharacter;
 
-  }else if(uppercaseConfirm && specialConfirmed){
-    characters += uppercaseLetter + numbercharacter;
+}else if (uppercaseConfirm && numberConfirm){
+  characters += uppercaseLetter + numberCharacter;
 
-  }else if(numberConfirmed && specialConfirm){
-    characters += numbercharacter + specialcharacter;
+}else if (numberConfirm && specialConfirm){
+  characters += numberCharacter + specialCharacter;
 
-  }else if(uppercaseConfirmed && specialConfirm){
-    characters += uppercaseLetter + specialcharacter;
+}else if (uppercaseConfirm && specialConfirm){
+  characters += uppercaseLetter + specialCharacter;
 
-  }else if(uppercaseConfirm){
-    characters += uppercaseConfirm;
+}else if (uppercaseConfirm){
+  characters += uppercaseLetter;
 
-  }else if(numberConfirmed){
-    characters += numbercharacter;
+}else if(numberConfirm){
+  characters += numberCharacter;
 
-  }else if(specialConfirm){
-    characters += specialcharacter;
-  }
-  else{
-    characters === lowercaseLetter;
-  }
-    for(var i = 0; i < passwordLength; i++){
-      password += characters.charAt(Math.floor(Math.random() * characters.length));
+}else if (specialConfirm){
+  characters += specialCharacter;
+
+}else{
+  characters === lowercaseLetter;
+}
+
+  for(var i = 0; i < passwordLength; i++){
+    password += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return password;
-
 }
